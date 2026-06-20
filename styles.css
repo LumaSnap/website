@@ -24,6 +24,7 @@ html {
 body {
   margin: 0;
   background: var(--surface);
+  overflow-x: hidden;
 }
 
 a {
@@ -43,7 +44,7 @@ a {
   min-height: 72px;
   padding: 14px clamp(18px, 4vw, 58px);
   border-bottom: 1px solid rgba(8, 24, 43, 0.08);
-  background: rgba(244, 244, 244, 0.88);
+  background: rgba(244, 244, 244, 0.94);
   backdrop-filter: blur(16px);
 }
 
@@ -92,35 +93,25 @@ a {
 
 .hero {
   position: relative;
-  min-height: 92vh;
+  min-height: 820px;
   overflow: hidden;
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(380px, 0.9fr) minmax(520px, 1.1fr);
+  gap: clamp(34px, 5vw, 72px);
   align-items: center;
-  padding: 128px clamp(22px, 6vw, 88px) 80px;
+  padding: 126px clamp(24px, 5vw, 88px) 84px;
   border-bottom: 1px solid var(--line);
-}
-
-.hero-image {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
-.hero-shade {
-  position: absolute;
-  inset: 0;
   background:
-    linear-gradient(90deg, rgba(244, 244, 244, 0.97) 0%, rgba(244, 244, 244, 0.88) 34%, rgba(244, 244, 244, 0.24) 76%),
-    linear-gradient(0deg, rgba(244, 244, 244, 0.42), rgba(244, 244, 244, 0.12));
+    linear-gradient(135deg, rgba(0, 128, 255, 0.08), rgba(244, 244, 244, 0) 42%),
+    linear-gradient(0deg, rgba(238, 37, 96, 0.04), rgba(244, 244, 244, 0) 48%),
+    var(--surface);
 }
 
 .hero-content {
   position: relative;
   z-index: 1;
-  width: min(650px, 100%);
+  width: min(680px, 100%);
+  min-width: 0;
 }
 
 .eyebrow {
@@ -140,9 +131,9 @@ p {
 }
 
 h1 {
-  margin-bottom: 14px;
-  font-size: clamp(58px, 8vw, 108px);
-  line-height: 0.92;
+  margin-bottom: 18px;
+  font-size: clamp(58px, 7vw, 96px);
+  line-height: 0.96;
   letter-spacing: 0;
 }
 
@@ -162,8 +153,9 @@ h3 {
 .hero-copy {
   width: min(580px, 100%);
   color: rgba(8, 24, 43, 0.78);
-  font-size: clamp(19px, 2.4vw, 27px);
-  font-weight: 560;
+  font-size: clamp(20px, 2vw, 26px);
+  font-weight: 680;
+  overflow-wrap: break-word;
 }
 
 .hero-actions {
@@ -179,7 +171,7 @@ h3 {
   align-items: center;
   justify-content: center;
   min-height: 52px;
-  border-radius: 16px;
+  border-radius: 8px;
   padding: 0 22px;
   font-weight: 780;
 }
@@ -192,12 +184,81 @@ h3 {
 
 .secondary-action {
   border: 1px solid rgba(8, 24, 43, 0.16);
-  background: rgba(255, 255, 255, 0.74);
+  background: rgba(255, 255, 255, 0.84);
 }
 
-.release-note {
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.hero-meta span {
+  border: 1px solid rgba(8, 24, 43, 0.12);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.72);
+  padding: 8px 11px;
   color: var(--muted);
   font-size: 14px;
+  font-weight: 680;
+}
+
+.hero-visual {
+  position: relative;
+  z-index: 1;
+  min-height: 610px;
+  min-width: 0;
+}
+
+.shot {
+  position: absolute;
+  margin: 0;
+  border: 1px solid rgba(8, 24, 43, 0.14);
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 28px 80px rgba(8, 24, 43, 0.16);
+  overflow: hidden;
+}
+
+.shot img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+.shot figcaption {
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  border-top: 1px solid rgba(8, 24, 43, 0.08);
+  background: rgba(255, 255, 255, 0.96);
+  padding: 0 18px;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 720;
+}
+
+.shot-selection {
+  top: 8px;
+  right: 0;
+  width: min(92%, 720px);
+}
+
+.shot-editor {
+  left: 0;
+  bottom: 0;
+  width: min(76%, 590px);
+}
+
+.shot-editor::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: 8px;
+  box-shadow: inset 0 0 0 2px rgba(238, 37, 96, 0.06);
 }
 
 .section {
@@ -350,13 +411,9 @@ h3 {
   }
 
   .hero {
-    min-height: 760px;
-    align-items: flex-end;
-  }
-
-  .hero-shade {
-    background:
-      linear-gradient(0deg, rgba(244, 244, 244, 0.98) 0%, rgba(244, 244, 244, 0.88) 44%, rgba(244, 244, 244, 0.22) 100%);
+    min-height: auto;
+    grid-template-columns: 1fr;
+    padding-top: 96px;
   }
 
   .intro,
@@ -374,6 +431,17 @@ h3 {
   .limit-list li:last-child {
     border-bottom: 0;
   }
+
+  .hero-visual {
+    min-height: auto;
+    display: grid;
+    gap: 14px;
+  }
+
+  .shot {
+    position: static;
+    width: 100%;
+  }
 }
 
 @media (max-width: 520px) {
@@ -383,6 +451,11 @@ h3 {
 
   .hero {
     padding: 94px 20px 54px;
+  }
+
+  .hero-copy {
+    font-size: 21px;
+    line-height: 1.42;
   }
 
   .hero-actions {
