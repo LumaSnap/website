@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LumaSnap - Windows 区域录屏工具</title>
+    <meta
+      name="description"
+      content="LumaSnap 是一个快速、清爽的 Windows 区域录屏工具，支持框选录制、暂停继续、录屏编辑、剪裁下载和复制。"
+    />
+    <link rel="icon" href="assets/favicon.ico" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="LumaSnap home">
+        <img src="assets/logo.png" alt="" />
+        <span>LumaSnap</span>
+      </a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="#features">功能</a>
+        <a href="#privacy">隐私</a>
+        <a href="#faq">FAQ</a>
+        <a class="nav-download" href="https://github.com/LumaSnap/LumaSnap/releases/latest">下载</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <img class="hero-image" src="assets/product-preview.png" alt="LumaSnap 的录屏配置和录屏编辑界面预览" />
+        <div class="hero-shade"></div>
+        <div class="hero-content">
+          <p class="eyebrow">Windows region screen recorder</p>
+          <h1 id="hero-title">LumaSnap</h1>
+          <p class="hero-copy">快速、清爽的 Windows 区域录屏工具。框选区域，开始录制，停止后剪裁、下载或复制。</p>
+          <div class="hero-actions">
+            <a class="primary-action" href="https://github.com/LumaSnap/LumaSnap/releases/latest">下载 Windows 版</a>
+            <a class="secondary-action" href="https://github.com/LumaSnap/LumaSnap">查看 GitHub</a>
+          </div>
+          <p class="release-note">当前版本 v0.1.0：仅支持屏幕视频，暂不支持音频。</p>
+        </div>
+      </section>
+
+      <section class="section intro" aria-label="产品概览">
+        <div>
+          <h2>为区域录屏做得更顺手</h2>
+          <p>
+            LumaSnap 专注于日常演示、问题反馈、产品说明和快速素材捕捉。它不会自动上传录屏，也不会在你没有点击下载时写入永久视频文件。
+          </p>
+        </div>
+        <div class="quick-facts" aria-label="产品事实">
+          <span>F2 框选录制</span>
+          <span>本地处理</span>
+          <span>MP4 导出</span>
+        </div>
+      </section>
+
+      <section id="features" class="section" aria-labelledby="features-title">
+        <div class="section-heading">
+          <p class="eyebrow">Features</p>
+          <h2 id="features-title">核心功能</h2>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <h3>框选录制</h3>
+            <p>按 F2 进入框选，拖拽边缘和角点调整录制区域。框选时按 Esc 或右键可以取消。</p>
+          </article>
+          <article class="feature-card">
+            <h3>暂停继续</h3>
+            <p>悬浮控制条提供暂停、继续和结束录制，录制中边框会从蓝色变为红色。</p>
+          </article>
+          <article class="feature-card">
+            <h3>录屏编辑</h3>
+            <p>停止后进入录屏编辑界面，支持播放、重新播放、红色剪裁滑块和蓝色进度滑块。</p>
+          </article>
+          <article class="feature-card">
+            <h3>下载与复制</h3>
+            <p>下载和复制都会遵循剪裁范围。没有点击下载时，不会自动写入永久录屏文件。</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="privacy" class="section split-section" aria-labelledby="privacy-title">
+        <div>
+          <p class="eyebrow">Privacy</p>
+          <h2 id="privacy-title">录屏只在本地处理</h2>
+        </div>
+        <div class="privacy-panel">
+          <p>当前版本不包含账号、云同步、遥测、广告或上传逻辑。录制、编辑、下载和复制都在你的 Windows 设备本地完成。</p>
+          <a href="https://github.com/LumaSnap/LumaSnap/blob/main/PRIVACY.md">查看隐私说明</a>
+        </div>
+      </section>
+
+      <section class="section limits" aria-labelledby="limits-title">
+        <div class="section-heading">
+          <p class="eyebrow">Status</p>
+          <h2 id="limits-title">当前状态</h2>
+        </div>
+        <ul class="limit-list">
+          <li>支持 Windows x64。</li>
+          <li>当前版本暂不支持音频录制。</li>
+          <li>当前使用 FFmpeg gdigrab 后端。</li>
+          <li>暂未代码签名，Windows 可能提示未知发布者。</li>
+        </ul>
+      </section>
+
+      <section id="faq" class="section faq" aria-labelledby="faq-title">
+        <div class="section-heading">
+          <p class="eyebrow">FAQ</p>
+          <h2 id="faq-title">常见问题</h2>
+        </div>
+        <details>
+          <summary>双击后没有窗口，是不是没启动？</summary>
+          <p>LumaSnap 默认常驻系统托盘。启动后可以在托盘右键选择配置，或按 F2 开始框选录制。</p>
+        </details>
+        <details>
+          <summary>为什么 Windows 会提示未知发布者？</summary>
+          <p>当前早期版本还没有代码签名。后续正式发布前会评估代码签名证书和安装器。</p>
+        </details>
+        <details>
+          <summary>录屏文件会自动保存到本地吗？</summary>
+          <p>不会。停止录制后只生成临时预览文件，只有点击下载时才会写入你选择的位置。</p>
+        </details>
+        <details>
+          <summary>是否支持音频？</summary>
+          <p>v0.1.0 暂不支持音频。音频录制会作为后续版本规划。</p>
+        </details>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>© 2026 LumaSnap</span>
+      <a href="https://github.com/LumaSnap/LumaSnap/releases/latest">Release</a>
+      <a href="https://github.com/LumaSnap/LumaSnap/blob/main/SUPPORT.md">Support</a>
+      <a href="https://github.com/LumaSnap/LumaSnap/blob/main/PRIVACY.md">Privacy</a>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
