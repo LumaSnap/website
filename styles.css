@@ -207,12 +207,16 @@ h3 {
 .hero-visual {
   position: relative;
   z-index: 1;
-  min-height: 610px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 520px;
   min-width: 0;
 }
 
 .shot {
-  position: absolute;
+  position: relative;
+  width: min(100%, 760px);
   margin: 0;
   border: 1px solid rgba(8, 24, 43, 0.14);
   border-radius: 8px;
@@ -241,24 +245,7 @@ h3 {
 }
 
 .shot-selection {
-  top: 8px;
-  right: 0;
-  width: min(92%, 720px);
-}
-
-.shot-editor {
-  left: 0;
-  bottom: 0;
-  width: min(76%, 590px);
-}
-
-.shot-editor::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  border-radius: 8px;
-  box-shadow: inset 0 0 0 2px rgba(238, 37, 96, 0.06);
+  width: min(100%, 760px);
 }
 
 .section {
